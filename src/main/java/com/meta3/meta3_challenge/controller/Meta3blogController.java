@@ -51,7 +51,7 @@ public class Meta3blogController {
     public String saveEditedPost(@Valid Post post, BindingResult result, RedirectAttributes attributes) {
         if(result.hasErrors()) {
             attributes.addFlashAttribute("mensagem", "Verifique se os campos obrigatórios foram preenchidos");
-            return "redirect:/newpost";
+            return "/posts/{id}/edit";
         }
         meta3blogService.save(post);
         return "redirect:/posts";
