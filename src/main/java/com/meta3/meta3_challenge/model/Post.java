@@ -27,6 +27,8 @@ public class Post {
     @Lob
     private String texto;
 
+    //Getters and Setters
+
     public Long getId() {
         return id;
     }

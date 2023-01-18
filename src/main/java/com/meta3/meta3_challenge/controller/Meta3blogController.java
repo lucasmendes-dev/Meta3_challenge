@@ -44,6 +44,7 @@ public class Meta3blogController {
         ModelAndView mv = new ModelAndView("editPost");
         Post post = meta3blogService.findById(id);
         mv.addObject("post", post);
+
         return mv;
     }
 
@@ -51,9 +52,10 @@ public class Meta3blogController {
     public String saveEditedPost(@Valid Post post, BindingResult result, RedirectAttributes attributes) {
         if(result.hasErrors()) {
             attributes.addFlashAttribute("mensagem", "Verifique se os campos obrigatórios foram preenchidos");
-            return "/posts/{id}/edit";
+            return "/posts";
         }
         meta3blogService.save(post);
+
         return "redirect:/posts";
     }
 
@@ -70,6 +72,7 @@ public class Meta3blogController {
         }
         post.setData(LocalDate.now());
         meta3blogService.save(post);
+
         return "redirect:/posts";
     }
 
@@ -77,6 +80,7 @@ public class Meta3blogController {
     public String deletePost(@PathVariable("id") long id, RedirectAttributes attributes) {
         meta3blogService.deleteById(id);
         attributes.addFlashAttribute("mensagem", "Post excluído com sucesso");
+
         return "redirect:/posts";
     }
 }

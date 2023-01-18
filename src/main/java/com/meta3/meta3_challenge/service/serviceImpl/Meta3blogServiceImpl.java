@@ -39,5 +39,4 @@ public class Meta3blogServiceImpl implements Meta3blogService {
          blogRepository.deleteById(id);
     }
 
-
 }
