@@ -9,5 +9,8 @@ public interface Meta3blogService {
     List<Post> findAll();
     Post findById(long id);
     Post save(Post post);
+    Post edit(Post post);
+    void deleteById(long id);
+
 
 }

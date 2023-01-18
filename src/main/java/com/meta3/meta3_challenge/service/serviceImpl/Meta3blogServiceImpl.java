@@ -28,4 +28,16 @@ public class Meta3blogServiceImpl implements Meta3blogService {
     public Post save(Post post) {
         return blogRepository.save(post);
     }
+
+    @Override
+    public Post edit(Post post){
+        return blogRepository.save(post);
+    }
+
+    @Override
+    public void deleteById(long id) {
+         blogRepository.deleteById(id);
+    }
+
+
 }

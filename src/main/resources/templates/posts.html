@@ -14,23 +14,8 @@
         <header>
             <nav class="navbar navbar-expand-lg bg-dark">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#" style="color: #FFF">Meta3 Group</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="#" style="color: #FFF">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#" style="color: #FFF">Features</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#" style="color: #FFF">Pricing</a>
-                            </li>
-                        </ul>
-                    </div>
+                    <a class="navbar-brand mb-0 h1 ml-0" style="color: #FFF" href="/posts">Meta3 Group</a>
+                    <a class="btn btn-primary ml-auto mr-0" role="button" href="/newpost" style="color: #FFF">+ Novo Post</a>
                 </div>
             </nav>
         </header>
@@ -43,7 +28,7 @@
                         <li class="breadcrumb-item active mt-4" aria-current="page">Posts</li>
                     </ol>
                 </nav>
-
+                <th:block th:include="mensagemValidacao"></th:block>
                 <div class="card shadow-sm bg-white rounded" style="margin-top:20px" th:each="post : ${posts}">
                     <div class="card-body">
                         <p class="card-subtitle mb-2 text-muted" style="font-size: 0.8rem;">
@@ -60,6 +45,10 @@
                         <p class="card-text">
                             <span th:utext="${#strings.abbreviate(post.texto, 400)}"></span>
                         </p>
+
+                        <a class="btn btn-warning" th:href="@{/posts/{id}/edit(id=${post.id})}">Editar</a>
+                        <a class="btn btn-danger" th:href="@{/posts/{id}/delete(id=${post.id})}">Excluir</a>
+
                     </div>
                 </div>
 
